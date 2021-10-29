@@ -1,12 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, ScrollView, FlatList  } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import AppItem from './AppItem';
 
 export default function AppList() {
+    const [items, setItems] = useState([
+        {id: 1, quantidade: 5, descricao: "arroz" }, 
+        {id: 2, quantidade: 1, descricao: "feijão" }, 
+        {id: 3, quantidade: 6, descricao: "pão" }, 
+        {id: 4, quantidade: 2, descricao: "massa" },
+    ]);
+
+    const renderItem = ({ item }) => (
+        <AppItem key={item.id} id={item.id} item={item.descricao + " (" + item.quantidade + ")"} />
+    );
+
     return (
       <View style={styles.container}>
-        <Text>List!</Text>
-        <StatusBar style="light" />
+        <ScrollView 
+            style={styles.scrollContainer}
+            contentContainerStyle={styles.itemsContainer}
+        >
+            <FlatList
+                data={items}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+            />
+        </ScrollView>
       </View>
     );
 }

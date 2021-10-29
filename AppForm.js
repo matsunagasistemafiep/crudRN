@@ -1,12 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function AppForm() {
     return (
       <View style={styles.container}>
-        <Text>Form!</Text>
-        <StatusBar style="light" />
+        
+        <Text style={styles.title}>Definir um novo item de compra</Text>
+
+        <View style={styles.inputContainer}>
+
+          <TextInput 
+            style={styles.input}
+            placeholder="O que está faltando em casa?"
+          />
+
+          <TextInput 
+            style={styles.input}
+            placeholder="Qual a quantidade?"
+          />
+
+          <TouchableOpacity
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Adicionar à lista</Text>
+          </TouchableOpacity>
+
+        </View>
+
+
+
       </View>
     );
 }
@@ -14,7 +37,7 @@ export default function AppForm() {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#D93600',
+      backgroundColor: '#6495ED',
       alignItems: 'center',
     },
     title: {

@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 export default function AppItem(props) {
     return (
         <View style={styles.container}>
-          
+          <Text style={styles.textItem}> {props.item} </Text>
         </View>
       );
 }
