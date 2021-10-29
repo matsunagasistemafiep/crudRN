@@ -34,12 +34,18 @@ function AppTab(){
             
                 <Screen 
                     name="AppList" 
-                    component={AppList} 
+                    component={AppList}
+                    options={
+                        {tabBarLabel: "Compras"}
+                    } 
                 />
             
                 <Screen 
                     name="AppForm" 
                     component={AppForm} 
+                    options={
+                        {tabBarLabel: "Adicionar"}
+                    } 
                 />
             
             </Navigator>
